@@ -91,7 +91,7 @@ function send(str) {
   socket.send(str);
 }
   
-  /*r touchArea = document.querySelector("#touchArea");
+  var touchArea = document.querySelector("#touchArea");
   touchArea.addEventListener("touchstart", function(e)
   {
     var touch = e.changedTouches[0];
@@ -116,8 +116,8 @@ function send(str) {
     socket.send(msg);
     //socket.send("touch end");
     e.preventDefault();
-  });*/
-  ////////////////////////
+  });
+
 
   function DoNormalCamera() {
     alert("DoNormalCamera");
