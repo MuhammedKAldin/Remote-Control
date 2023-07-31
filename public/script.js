@@ -17,6 +17,9 @@ function round(v, scalar)
   return Math.round(v * scalar) / scalar;
 }
 
+const WebSocket = require('ws');
+
+const PORT = 5000;
 
 if (document.readyState != 'loading') ready();
 else document.addEventListener('DOMContentLoaded', ready);
@@ -29,20 +32,62 @@ function ready()
       original_top: objects[i].style.top
     }
   }
+
   // Note the resource URL should match the config in app.js
-  const url = 'wss://' + location.host + '/ws';
-  socket = new ReconnectingWebsocket(url);
+  // const url = 'wss://' + location.host + '/ws';
+  // socket = new ReconnectingWebsocket(url);
 
-  // Connection has been established
-  socket.onopen = function(evt) {
-    console.log('Web socket opened: ' + url);
-  };
+  // // Connection has been established
+  // socket.onopen = function(evt) {
+  //   console.log('Web socket opened: ' + url);
+  // };
 
-  // Received a message
-  socket.onmessage = function(evt) {
-    parseMessage(evt.data);
-  };
+  // // Received a message
+  // socket.onmessage = function(evt) {
+  //   parseMessage(evt.data);
+  // };
+
+  initializeWebSocketServer();
+
+  //------------------------------------------------------------
 }
+
+function initializeWebSocketServer() {
+  const wsServer = new WebSocket.Server({
+    port: PORT,
+  });
+
+  wsServer.on('connection', handleConnection);
+
+  console.log((new Date()) + " Server is listening on port " + PORT);
+}
+
+function handleConnection(socket) 
+{
+    // Some feedback on the console
+    console.log("A client just connected");
+
+    // Attach some behavior to the incoming socket
+    socket.on('message', function (msg) 
+    {
+      console.log("Received message from client: " + msg);
+    
+      // Connection has been established
+      // socket.on('open' , function(msg) {
+      //   // Note the resource URL should match the config in app.js
+      //   const url = 'wss://' + location.host + '/ws';
+      //   console.log('Web socket opened: ' + url);
+      //   alert('Web socket opened: ' + url);  
+      // });
+
+      // Broadcast that message to all connected clients
+      // wsServer.clients.forEach(function (client) {
+      //   client.send(msg);
+      // });
+  });
+}
+
+//------------------------------------------------------------
 
 function parseMessage(msg)
 {
