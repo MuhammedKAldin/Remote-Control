@@ -1,3 +1,5 @@
+// https://glitch.com/edit/#!/socket-control
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -52,4 +54,5 @@ app.use(function(err, req, res, next) {
 
 app.listen(process.env.PORT);
 console.log('Webserver started');
+console.log('Started Port => '+process.env.PORT);
 module.exports = app;
