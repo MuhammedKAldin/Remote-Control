@@ -118,4 +118,9 @@ function send(str) {
     e.preventDefault();
   });*/
   ////////////////////////
+
+  function DoNormalCamera() {
+    alert("DoNormalCamera");
+    socket.send("PonnAllCamera");
+  }
   

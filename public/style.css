@@ -41,3 +41,9 @@ html {
     border: 1px solid black;
     background: white;
   }
+
+  .filterButton{
+    height: 10rem;
+    width: 10rem;
+    border: 1px solid black;
+  }
