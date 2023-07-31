@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>websockets-skeleton</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      html, body { width:100%; height:100%;padding:0;margin:0 }
+      h1 { text-align:center;color:white; }
+    </style>
+  </head>
+  <body>
+    <div id="touchArea" style="width:100%;height:100%;border:1px solid black;background:#333;position:relative;">
+      <div id="marker" style="width:20px; height:20px;background:red;position:absolute;left:50%;top:50%;">
+        
+      </div>
+      
+      <h1 style="position:absolute;left:250px;top:200px;">Lentiviral<br/>Vector</h1>
+      <img id="object1" src="https://cdn.glitch.com/ac2ae738-2f3b-4e45-bd0c-7085842a8019%2FLentiviral%20Vector.png?1547494355185" style="position:absolute;top:300px;left:150px" />
+      
+      <h1 style="position:absolute;left:650px;top:220px;">T Cell</h1>
+      <img id="object2" src="https://cdn.glitch.com/ac2ae738-2f3b-4e45-bd0c-7085842a8019%2FT%20Cell.png?1547494355276" style="position:absolute;top:300px;left:550px" />
+      
+      <h1 style="position:absolute;left:1080px;top:200px;">Normal <br/> B Cell</h1>
+      <img id="object3" src="https://cdn.glitch.com/ac2ae738-2f3b-4e45-bd0c-7085842a8019%2FB%20Cell.png?1547494355008" style="position:absolute;top:300px;left:1000px" />
+      
+      <h1 style="position:absolute;left:1500px;top:200px;">Malignant<br/>B Cell</h1>
+      <img id="object4" src="https://cdn.glitch.com/ac2ae738-2f3b-4e45-bd0c-7085842a8019%2FMalignant%20B%20Cell.png?1547494355128" style="position:absolute;top:300px;left:1400px" />
+      
+      <!--
+      <h1 style="position:absolute;left:250px;top:200px;">Lentiviral<br/>Vector</h1>
+      <img id="object1" src="https://cdn.glitch.com/ac2ae738-2f3b-4e45-bd0c-7085842a8019%2FLentiviral%20Vector.png?1547494355185" style="position:absolute;top:300px;left:150px" />
+      
+      <h1 style="position:absolute;left:600px;top:220px;">T Cell</h1>
+      <img id="object2" src="https://cdn.glitch.com/ac2ae738-2f3b-4e45-bd0c-7085842a8019%2FT%20Cell.png?1547494355276" style="position:absolute;top:300px;left:500px" />
+      
+      <h1 style="position:absolute;left:950px;top:200px;">Normal <br/> B Cell</h1>
+      <img id="object3" src="https://cdn.glitch.com/ac2ae738-2f3b-4e45-bd0c-7085842a8019%2FB%20Cell.png?1547494355008" style="position:absolute;top:300px;left:870px" />
+      
+      <h1 style="position:absolute;left:1300px;top:200px;">Malignant<br/>B Cell</h1>
+      <img id="object4" src="https://cdn.glitch.com/ac2ae738-2f3b-4e45-bd0c-7085842a8019%2FMalignant%20B%20Cell.png?1547494355128" style="position:absolute;top:300px;left:1200px" />
+      -->
+    </div>
+    
+    <form id="sendForm">
+      <input type="text" value="Hello" id="sendThis"></input>
+      <input type="submit" value="Send">
+    </form>
+
+    <h2>Received</h2>
+    <div id="lastMsg">(nothing)</div>
+
+    <script src="lib/reconnecting-websocket.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
